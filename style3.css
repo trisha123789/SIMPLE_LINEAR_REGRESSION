@@ -1,0 +1,86 @@
+/* Background with galaxy + stars */
+.stApp {
+    position: relative;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    background: radial-gradient(circle at 20% 30%, #0d1b2a, #000000 80%);
+}
+
+/* Stars layer */
+.stApp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: transparent url('https://i.ibb.co/S3h1DzM/stars.png') repeat;
+    background-size: contain;
+    animation: moveStars 120s linear infinite;
+    z-index: 0;
+}
+
+/* Animate stars */
+@keyframes moveStars {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+/* Content wrapper to stay above stars */
+.stApp > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Main Cards */
+.card {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+    margin-bottom: 28px;
+    border-left: 8px solid #7b2ff7;
+    color: #1f2937;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* Metrics container */
+div[data-testid="metric-container"] {
+    background: linear-gradient(135deg, #d5faff, #ffe6ff);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(99,102,241,0.2);
+    font-weight: 600;
+}
+
+/* Prediction box */
+.prediction-box {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b, #1fa2ff);
+    padding: 28px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 22px;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.35);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.prediction-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45), 0 0 20px rgba(255,255,255,0.2);
+}
